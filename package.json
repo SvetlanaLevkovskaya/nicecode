@@ -6,11 +6,14 @@
   "scripts": {
     "start": "webpack serve --env port=3000 --env production --progress",
     "build:prod": "webpack --env mode=production",
-    "build:dev": "webpack --env mode=development"
+    "build:dev": "webpack --env mode=development",
+    "predeploy": "npm run build:dev",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": "https://svetlanalevkovskaya.github.io/nicecode",
   "devDependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
