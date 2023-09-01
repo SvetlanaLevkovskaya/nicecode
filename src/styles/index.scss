@@ -1,0 +1,18 @@
+@import "reset";
+@import "variables/global";
+
+body {
+  font-family: $font-main;
+  background-color:  $light-grey;
+  color: $dark;
+  font-size: 16px;
+}
+
+a {
+  color: $dark;
+  transition: color 0.2s ease-in;
+
+  &:visited {
+    color: $blue;
+  }
+}

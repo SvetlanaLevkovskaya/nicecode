@@ -15,6 +15,7 @@ export const Counter = () => {
 	return (
 		<>
 			<div className={classes.content}>
+				content
 				{count}
 			</div>
 			<button onClick={inc}>inc</button>
