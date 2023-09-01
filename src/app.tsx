@@ -2,11 +2,12 @@ import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import './styles/index.scss'
 import { MainPageAsync } from './pages/main-page.async';
+import { Loader } from './components/loader';
 
 export const App = () => {
 	return (
-		<div className="app">
-			<Suspense fallback={ <div>Loading...</div> }>
+		<div>
+			<Suspense fallback={ <Loader /> }>
 				<Routes>
 					<Route path="/" element={ <MainPageAsync /> } />
 				</Routes>

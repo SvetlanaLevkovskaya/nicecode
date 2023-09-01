@@ -1,0 +1,8 @@
+@import '../../../styles/variables/global';
+
+.container {
+  width: 60%;
+  height: calc(100vh - 9.7rem);
+  margin: 1.56rem auto 5rem;
+  background-color: $white;
+}
