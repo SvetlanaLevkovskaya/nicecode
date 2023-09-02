@@ -37,6 +37,8 @@ export const Navbar = () => {
 	const handleCancelClick = () => {
 		setShowActions(false);
 		setShowCheckboxes(false);
+		setSelectAll(false);
+		setSelectedFriendIds([]);
 	};
 
 	return (
