@@ -26,12 +26,87 @@
 
 .navbar__toolbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  justify-content: space-between;
+  padding: 15px 12px 15px 5px;
 }
 
-.navbar__text {
+.navbar__subcontainer {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__checkbox {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.navbar__label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $grey;
+}
+
+.navbar__checkbox input[type="checkbox"] {
+  /* Скрыть оригинальный чекбокс */
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.navbar__checkbox label {
+  /* Установить размер и положение метки */
+  display: inline-block;
+  position: relative;
+  padding-left: 25px; /* Добавить отступ слева, чтобы создать место для псевдоэлемента ::before */
+  cursor: pointer;
+}
+
+.navbar__checkbox label::before {
+  /* Создать псевдоэлемент для стилизации границы и заливки */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #CDCDCD; /* Задать цвет границы */
+  background-color: $white; /* Задать цвет заливки */
+  border-radius: 4px;
+}
+
+.navbar__checkbox input[type="checkbox"]:checked + label::before {
+  /* Изменить стиль псевдоэлемента для отмеченного чекбокса */
+  background-color: $blue; /* Задать цвет заливки для отмеченного чекбокса */
+  border-color: $blue; /* Задать цвет границы для отмеченного чекбокса */
+  content: "\2713"; /* Добавить символ галочки в качестве содержимого псевдоэлемента */
+  text-align: center; /* Выравнивание символа по центру */
+  font-size: 12px; /* Размер шрифта символа */
+  line-height: 18px; /* Высота строки равна высоте элемента */
+  color: $white; /* Цвет символа */
+}
+
+.selectedFriendsCounter {
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $grey;
+}
+
+.navbar__btn {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $grey;
+}
+
+.navbar__actionbtn {
+  margin-right: 15px;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
