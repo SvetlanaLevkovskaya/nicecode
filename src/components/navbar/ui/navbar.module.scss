@@ -1,40 +1,37 @@
 @import '../../../styles/variables/global';
 
-.navbar__container{
+.navbar__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__container {
   height: 60px;
   box-shadow: 0 1px 4px 0 rgba(19, 19, 19, 0.10);
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  gap: 10px;
+  padding: 13px;
   background-color: $white;
   transition: background-color 0.2s ease-in;
 }
 
-/*
-.navbar__search--left {
+.navbar__container > div {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
-.navbar__search--right {
+.navbar__toolbar {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-}
-*/
-
-.navbar__container2 {
-  position:relative;
-}
-.navbar__search--oval {
-  position:relative;
-  z-index:1;
-}
-
-.navbar__search--loupe {
-  position:absolute;
-  top:55%;
-  left:35%;
-  z-index:2;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $grey;
 }
