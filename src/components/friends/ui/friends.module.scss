@@ -12,6 +12,15 @@
   transition: background-color 0.2s ease-in;
 }
 
+.friends__container_border {
+  border-left: 2px solid $blue;
+}
+
+.friends__container_selected {
+  background-color: $light-grey;
+  border: 2px solid $white;
+}
+
 .friends__name {
   margin-left: 10px;
 }

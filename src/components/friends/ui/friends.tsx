@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './friends.module.scss';
 import friend1 from '../../../assets/friend1.svg'
 import friend2 from '../../../assets/friend2.svg'
@@ -30,20 +30,30 @@ const friendsData = [
 
 
 export const Friends = () => {
+	const [selectedFriendId, setSelectedFriendId] = useState(null);
+
+	const handleFriendClick = (friendId: number) => {
+		setSelectedFriendId(friendId);
+	};
+
 	return (
 		<>
-			{ friendsData.map((friend) => (
-				<div key={ friend.id } className={ styles.friends__container }>
-					<img src={ friend.src } alt="friend" />
-					<div className={ styles.friends__name }>{ friend.name }</div>
-					{ friend.id === 1 && (
-						<img src={ telegram } alt="telegramIcon" className={ styles.friends__icon } />
-					) }
-					{ friend.id === 3 && (
-						<img src={ mod } alt="modIcon" className={ styles.friends__icon } />
-					) }
+			{friendsData.map((friend) => (
+				<div
+					key={friend.id}
+					className={`${styles.friends__container} ${
+						friend.id === selectedFriendId ? styles.friends__container_selected : ''
+					}`}
+					onClick={() => handleFriendClick(friend.id)}
+				>
+					<img src={friend.src} alt="friend" />
+					<div className={styles.friends__name}>{friend.name}</div>
+					{friend.id === 1 && (
+						<img src={telegram} alt="telegramIcon" className={styles.friends__icon} />
+					)}
+					{friend.id === 3 && <img src={mod} alt="modIcon" className={styles.friends__icon} />}
 				</div>
-			)) }
+			))}
 		</>
 	);
 };
