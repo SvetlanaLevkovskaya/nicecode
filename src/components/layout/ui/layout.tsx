@@ -8,8 +8,7 @@ type LayoutProps = {
 
 export const Layout = ({ children, className = '' }: LayoutProps) => {
 	return (
-		<div
-			className={ styles.container + ' ' + `${ className }` }>
+		<div className={ styles.container + ' ' + `${ className }` }>
 			{ children }
 		</div>
 	);

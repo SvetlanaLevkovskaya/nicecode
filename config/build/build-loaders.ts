@@ -31,9 +31,29 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 		exclude: /node_modules/,
 	}
 
+	const svgLoader = {
+		test: /\.svg$/,
+		oneOf: [
+			{
+				issuer: /\.[jt]sx?$/,
+				resourceQuery: /react/, // *.svg?react
+				use: ['@svgr/webpack', 'url-loader'],
+			},
+			{
+				type: 'asset',
+				parser: {
+					dataUrlCondition: {
+						maxSize: 200
+					}
+				}
+			},
+		],
+	}
+
 	return [
 		typescriptLoader,
 		cssLoader,
+		svgLoader,
 	]
 
 }
