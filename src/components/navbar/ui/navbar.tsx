@@ -16,9 +16,12 @@ export const Navbar = () => {
 		if (!selectAll) {
 			const allFriendIds = friendsData.map((friend) => friend.id);
 			setSelectedFriendIds(allFriendIds);
+			setShowActions(true);
 		} else {
 			setSelectedFriendIds([]);
+			setShowActions(false);
 		}
+		setShowCheckboxes(!showCheckboxes);
 	};
 
 	const handleFriendClick = (friendId: number) => {
@@ -129,4 +132,4 @@ export const Navbar = () => {
  </>
  );
  };
-*/
+ */
