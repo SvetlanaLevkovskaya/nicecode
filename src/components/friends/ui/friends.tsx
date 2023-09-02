@@ -14,36 +14,36 @@ import telegram from '../../../assets/telegram.svg';
 import mod from '../../../assets/mod.svg'
 
 const friendsData = [
-	{ id: 1, name: 'Кравцова Александра', src: friend1, showTelegramIcon: true },
-	{ id: 2, name: 'Рожков Денис', src: friend2, showTelegramIcon: false },
-	{ id: 3, name: 'Кравцова Александра', src: friend1, showTelegramIcon: true, showModIcon: true },
-	{ id: 4, name: 'Диброва Алевтина', src: friend3, showTelegramIcon: false },
-	{ id: 5, name: 'Иванов Дмитрий', src: friend4, showTelegramIcon: false },
-	{ id: 6, name: 'nosikov@list.ru', src: friend5, showTelegramIcon: false },
-	{ id: 7, name: 'Форс Александр', src: friend6, showTelegramIcon: false },
-	{ id: 8, name: 'Ахмедов Артур', src: friend7, showTelegramIcon: false },
-	{ id: 9, name: 'Блажевич Игорь', src: friend8, showTelegramIcon: false },
-	{ id: 10, name: 'Валиева Руфина', src: friend9, showTelegramIcon: false },
-	{ id: 11, name: 'Волошина Виктория', src: friend10, showTelegramIcon: false },
-	{ id: 12, name: 'Волошина Виктория', src: friend10, showTelegramIcon: false },
+	{ id: 1, name: 'Кравцова Александра', src: friend1 },
+	{ id: 2, name: 'Рожков Денис', src: friend2 },
+	{ id: 3, name: 'Кравцова Александра', src: friend1 },
+	{ id: 4, name: 'Диброва Алевтина', src: friend3 },
+	{ id: 5, name: 'Иванов Дмитрий', src: friend4 },
+	{ id: 6, name: 'nosikov@list.ru', src: friend5 },
+	{ id: 7, name: 'Форс Александр', src: friend6 },
+	{ id: 8, name: 'Ахмедов Артур', src: friend7 },
+	{ id: 9, name: 'Блажевич Игорь', src: friend8 },
+	{ id: 10, name: 'Валиева Руфина', src: friend9 },
+	{ id: 11, name: 'Волошина Виктория', src: friend10 },
+	{ id: 12, name: 'Волошина Виктория', src: friend10 },
 ];
 
 
 export const Friends = () => {
 	return (
 		<>
-			{friendsData.map((friend, index) => (
-				<div key={friend.id} className={styles.friends__container}>
-					<img src={friend.src} alt="friend" />
-					<div className={styles.friends__name}>{friend.name}</div>
-					{index === 0 && friend.showTelegramIcon && (
-						<img src={telegram} alt="telegramIcon" className={styles.friends__icon} />
-					)}
-					{friend.id === 3 && friend.showModIcon && (
-						<img src={mod} alt="modIcon" className={styles.friends__icon} />
-					)}
+			{ friendsData.map((friend) => (
+				<div key={ friend.id } className={ styles.friends__container }>
+					<img src={ friend.src } alt="friend" />
+					<div className={ styles.friends__name }>{ friend.name }</div>
+					{ friend.id === 1 && (
+						<img src={ telegram } alt="telegramIcon" className={ styles.friends__icon } />
+					) }
+					{ friend.id === 3 && (
+						<img src={ mod } alt="modIcon" className={ styles.friends__icon } />
+					) }
 				</div>
-			))}
+			)) }
 		</>
 	);
 };
