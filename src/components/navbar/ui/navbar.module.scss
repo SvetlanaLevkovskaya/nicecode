@@ -1,6 +1,6 @@
 @import '../../../styles/variables/global';
 
-.navbar__wrapper {
+.navbar {
   display: flex;
   flex-direction: column;
 }
@@ -18,7 +18,7 @@
   transition: background-color 0.2s ease-in;
 }
 
-.navbar__container > div {
+.navbar__icons {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -26,10 +26,12 @@
 
 .navbar__toolbar {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+}
+
+.navbar__text {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;

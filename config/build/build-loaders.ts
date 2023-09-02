@@ -29,7 +29,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 		test: /\.tsx?$/,
 		use: 'ts-loader',
 		exclude: /node_modules/,
-	}
+	};
 
 	const svgLoader = {
 		test: /\.svg$/,
@@ -48,12 +48,15 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 				}
 			},
 		],
-	}
+	};
+
+	const fileLoader =  { test: /\\.(png|jp(e*)g|svg|gif)$/, use: ['file-loader'], }
 
 	return [
 		typescriptLoader,
 		cssLoader,
 		svgLoader,
+		fileLoader,
 	]
 
 }

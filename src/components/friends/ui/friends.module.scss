@@ -1,0 +1,22 @@
+@import '../../../styles/variables/global';
+
+.friends__container {
+  margin-bottom: 10px;
+  height: 60px;
+  box-shadow: 0 1px 4px 0 rgba(19, 19, 19, 0.10);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 13px;
+  background-color: $white;
+  transition: background-color 0.2s ease-in;
+}
+
+.friends__name {
+  margin-left: 10px;
+}
+
+.friends__icon {
+  margin-left: auto;
+  margin-right: 20px;
+}
