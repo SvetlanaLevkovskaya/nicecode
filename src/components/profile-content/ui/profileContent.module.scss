@@ -1,0 +1,13 @@
+@import '../../../styles/variables/global';
+
+.profileContent__container {
+  height: 784px;
+  width: 100%;
+  box-shadow: 0 1px 4px 0 rgba(19, 19, 19, 0.10);
+  border-radius: 4px;
+  display: flex;
+  padding: 10px 16px 10px 10px;
+  background-color: $white;
+  transition: background-color 0.2s ease-in;
+}
+

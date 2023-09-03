@@ -1,0 +1,45 @@
+@import '../../../styles/variables/global';
+
+.profileButton__container {
+  display: flex;
+  justify-content: space-between;
+
+  .profileButton__leftContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .profileButton__rightContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .profileButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+    font-size: 14px;
+    color: $grey;
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in;
+
+    &:active {
+      color: $blue;
+    }
+
+    &:hover {
+      color: $blue;
+    }
+
+    .profileButton__icon {
+      margin-left: 5px;
+    }
+
+  }
+}
+
+
+

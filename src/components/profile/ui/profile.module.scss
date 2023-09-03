@@ -3,24 +3,5 @@
 .profile__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.profile__bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.profile__links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 50px;
-  background-color: #f2f2f2;
-}
-
-.profile__bottomText {
-  margin-top: 10px;
-}
