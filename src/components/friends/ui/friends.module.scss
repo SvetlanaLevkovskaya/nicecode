@@ -10,65 +10,63 @@
   padding: 13px;
   background-color: $white;
   transition: background-color 0.2s ease-in;
-}
 
-.friends__container_border {
-  border-left: 2px solid $blue;
-}
+  &.friends__container_border {
+    border-left: 2px solid $blue;
+  }
 
-.friends__container_selected {
-  background-color: $light-grey;
-  border: 2px solid $white;
+  &.friends__container_selected {
+    background-color: $light-grey;
+    border: 2px solid $white;
+  }
 }
 
 .friends__checkbox {
-  /* Установить размер и положение контейнера */
+  // Set the size and position of the container
   display: flex;
   align-items: center;
   margin-right: 10px;
+
+  input[type="checkbox"] {
+    // Hide the original checkbox
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  label {
+    // Set the size and position of the label
+    display: inline-block;
+    position: relative;
+    padding-left: 25px; // Add left padding to create space for the ::before pseudo-element
+    cursor: pointer;
+
+    &::before {
+      // Create a pseudo-element for border and background styling
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -8px;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #CDCDCD; // Set border color
+      background-color: $white; // Set background color
+      border-radius: 4px;
+    }
+  }
+
+  input[type="checkbox"]:checked + .friends__label::before {
+    // Change the style of the pseudo-element for the checked checkbox
+    background-color: $blue; // Set background color for checked checkbox
+    border-color: $blue; // Set border color for checked checkbox
+    content: "\2713"; // Add checkmark symbol as the content of the pseudo-element
+    text-align: center; // Align the symbol to the center
+    font-size: 12px; // Symbol font size
+    line-height: 18px; // Line height is equal to the element height
+    color: $white; // Symbol color
+  }
 }
-
-
-.friends__checkbox input[type="checkbox"] {
-  /* Скрыть оригинальный чекбокс */
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.friends__checkbox label {
-  /* Установить размер и положение метки */
-  display: inline-block;
-  position: relative;
-  padding-left: 25px; /* Добавить отступ слева, чтобы создать место для псевдоэлемента ::before */
-  cursor: pointer;
-}
-
-.friends__checkbox label::before {
-  /* Создать псевдоэлемент для стилизации границы и заливки */
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -8px;
-  width: 18px;
-  height: 18px;
-  border: 1px solid #CDCDCD; /* Задать цвет границы */
-  background-color: $white; /* Задать цвет заливки */
-  border-radius: 4px;
-}
-
-.friends__checkbox input[type="checkbox"]:checked + .friends__label::before {
-  /* Изменить стиль псевдоэлемента для отмеченного чекбокса */
-  background-color: $blue; /* Задать цвет заливки для отмеченного чекбокса */
-  border-color: $blue; /* Задать цвет границы для отмеченного чекбокса */
-  content: "\2713"; /* Добавить символ галочки в качестве содержимого псевдоэлемента */
-  text-align: center; /* Выравнивание символа по центру */
-  font-size: 12px; /* Размер шрифта символа */
-  line-height: 18px; /* Высота строки равна высоте элемента */
-  color: $white; /* Цвет символа */
-}
-
 
 .friends__name {
   margin-left: 10px;

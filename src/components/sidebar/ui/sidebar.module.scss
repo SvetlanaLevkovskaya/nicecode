@@ -3,23 +3,26 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+
+  .sidebar__container {
+    height: 60px;
+    box-shadow: 0 1px 4px 0 rgba(19, 19, 19, 0.10);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 13px;
+    background-color: $white;
+    transition: background-color 0.2s ease-in;
+  }
+
+  .sidebar__icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
-.sidebar__container {
-  height: 60px;
-  box-shadow: 0 1px 4px 0 rgba(19, 19, 19, 0.10);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 13px;
-  background-color: $white;
-  transition: background-color 0.2s ease-in;
-}
 
-.sidebar__icons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+
