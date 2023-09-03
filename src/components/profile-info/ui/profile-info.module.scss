@@ -1,0 +1,36 @@
+@import '../../../styles/variables/global';
+
+.profileInfo__container {
+  height: 110px;
+  width: 100%;
+  box-shadow: 0 1px 4px 0 rgba(19, 19, 19, 0.10);
+  border-radius: 4px;
+  display: flex;
+  gap: 10px;
+  padding: 10px 16px 10px 10px;
+  background-color: $white;
+  transition: background-color 0.2s ease-in;
+}
+
+.profileInfo__leftContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.profileInfo__rightContainer {
+  margin-left: auto;
+}
+
+.profileInfo__subcontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileInfo__name {
+  margin-top: 5px;
+}
+
+.profileInfo__dop {
+  font-size: 12px;
+  font-weight: 400;
+}

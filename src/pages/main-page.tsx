@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from '../components/header';
 import { Layout } from '../components/layout';
 import { Sidebar } from '../components/sidebar';
+import { Profile } from '../components/profile';
 
 const MainPage = () => {
 	return (
@@ -9,7 +10,7 @@ const MainPage = () => {
 			<Header />
 			<Layout>
 				<Sidebar/>
-				<div style={{background: 'red'}}>content</div>
+				<Profile />
 			</Layout>
 		</>
 	);
