@@ -6,6 +6,9 @@ import { SearchIcon } from '../../search-icon';
 import { FilterIcon } from '../../filter-icon';
 import { PlusIcon } from '../../plus-icon';
 import { SidebarToolbar } from '../../sidebar-toolbar';
+import searchInput from '../../../assets/search-input.svg'
+import close from '../../../assets/close.svg'
+import closeHover from '../../../assets/closehover.svg'
 
 
 export const Sidebar = () => {
@@ -18,6 +21,8 @@ export const Sidebar = () => {
 	const [isSearchHovered, setIsSearchHovered] = useState(false);
 	const [isFilterHovered, setIsFilterHovered] = useState(false);
 	const [isPlusHovered, setIsPlusHovered] = useState(false);
+	const [isSearchClicked, setIsSearchClicked] = useState(false);
+	const [isCloseHovered, setIsCloseHovered] = useState(false);
 
 	const handleSelectAll = () => {
 		setSelectAll(!selectAll);
@@ -55,13 +60,47 @@ export const Sidebar = () => {
 		setSelectedFriendIds([]);
 	};
 
+	const handleSearchClick = () => {
+		setIsSearchClicked(true);
+		setIsFilterHovered(false);
+		setIsPlusHovered(false);
+	};
+
+	const handleCloseClick = () => {
+		setIsSearchClicked(false);
+	};
+
+	const handleCloseHover = () => {
+		setIsCloseHovered(true);
+	};
+
+	const handleCloseLeave = () => {
+		setIsCloseHovered(false);
+	};
+
 	return (
 		<div className={ styles.sidebar }>
 			<div className={ styles.sidebar__container }>
+
+				{ isSearchClicked && (
+					<>
+						<img src={ searchInput } alt={ 'searchInput' } />
+						<img
+							src={isCloseHovered ? closeHover : close}
+							alt={'close'}
+							onClick={handleCloseClick}
+							onMouseEnter={handleCloseHover}
+							onMouseLeave={handleCloseLeave}
+						/>
+					</>
+
+				) }
+
 				<SearchIcon
 					onMouseEnter={ () => setIsSearchHovered(true) }
 					onMouseLeave={ () => setIsSearchHovered(false) }
 					isSearchHovered={ isSearchHovered }
+					onClick={ handleSearchClick }
 				/>
 				<div className={ styles.sidebar__icons }>
 					<FilterIcon
