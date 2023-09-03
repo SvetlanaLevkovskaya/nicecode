@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-import styles from './navbar.module.scss';
-import { Filter, Plus, Search } from '../../icons/ui/icons';
+import styles from './sidebar.module.scss';
 import { Friends } from '../../friends';
 import { friendsData } from '../../../data/friends';
+import { SearchIcon } from '../../search-icon';
+import { FilterIcon } from '../../filter-icon';
+import { PlusIcon } from '../../plus-icon';
 
 
-export const Navbar = () => {
+export const Sidebar = () => {
 	const [selectAll, setSelectAll] = useState(false);
 	const [selectedFriendIds, setSelectedFriendIds] = useState([]);
 	const [showActions, setShowActions] = useState(false);
 	const [showCheckboxes, setShowCheckboxes] = useState(false);
+
+	const [isSearchHovered, setIsSearchHovered] = useState(false);
+	const [isFilterHovered, setIsFilterHovered] = useState(false);
+	const [isPlusHovered, setIsPlusHovered] = useState(false);
 
 	const handleSelectAll = () => {
 		setSelectAll(!selectAll);
@@ -32,7 +38,7 @@ export const Navbar = () => {
 		}
 	};
 
-	const handleActionsClick = () => {
+	const handleSelectClick = () => {
 		setShowActions(true);
 		setShowCheckboxes(true);
 	};
@@ -45,22 +51,34 @@ export const Navbar = () => {
 	};
 
 	return (
-		<div className={ styles.navbar }>
-			<div className={ styles.navbar__container }>
-				<Search />
-				<div className={ styles.navbar__icons }>
-					<Filter />
-					<Plus />
+		<div className={ styles.sidebar }>
+			<div className={ styles.sidebar__container }>
+				<SearchIcon
+					onMouseEnter={ () => setIsSearchHovered(true) }
+					onMouseLeave={ () => setIsSearchHovered(false) }
+					isSearchHovered={ isSearchHovered }
+				/>
+				<div className={ styles.sidebar__icons }>
+					<FilterIcon
+						onMouseEnter={ () => setIsFilterHovered(true) }
+						onMouseLeave={ () => setIsFilterHovered(false) }
+						isFilterHovered={ isFilterHovered }
+					/>
+					<PlusIcon
+						onMouseEnter={ () => setIsPlusHovered(true) }
+						onMouseLeave={ () => setIsPlusHovered(false) }
+						isPlusHovered={ isPlusHovered }
+					/>
 				</div>
 			</div>
 
-			<div className={ styles.navbar__toolbar }>
+			<div className={ styles.sidebar__toolbar }>
 
-				<div className={ styles.navbar__subcontainer }>
+				<div className={ styles.sidebar__subcontainer }>
 
-					<div className={ styles.navbar__checkbox }>
+					<div className={ styles.sidebar__checkbox }>
 						<input type="checkbox" checked={ selectAll } onChange={ handleSelectAll } id="selectAll" />
-						<label htmlFor="selectAll" className={ styles.navbar__label }>Все</label>
+						<label htmlFor="selectAll" className={ styles.sidebar__label }>Все</label>
 
 						<div className={ styles.selectedFriendsCounter }>
 							{ selectedFriendIds.length }
@@ -71,15 +89,15 @@ export const Navbar = () => {
 				</div>
 				<div>
 					{ !showActions ? (
-						<button className={ styles.navbar__btn } onClick={ handleActionsClick }>
+						<button className={ styles.sidebar__btn } onClick={ handleSelectClick }>
 							Выбрать
 						</button>
 					) : (
 						<>
-							<button className={ styles.navbar__actionbtn } onClick={ handleActionsClick }>
+							<button className={ styles.sidebar__actionbtn } onClick={ () => {} }>
 								Действия
 							</button>
-							<button className={ styles.navbar__btn } onClick={ handleCancelClick }>
+							<button className={ styles.sidebar__btn } onClick={ handleCancelClick }>
 								Отменить
 							</button>
 						</>
@@ -96,40 +114,3 @@ export const Navbar = () => {
 	);
 };
 
-
-/*
- return (
- <>
- { friendsData.map((friend) => (
- <div
- key={ friend.id }
- className={ `${ styles.friends__container } ${
- selectedFriendIds.includes(friend.id) ? styles.friends__container_selected : ''
- }` }
- onClick={ () => handleFriendClick(friend.id) }
- >
- { showCheckboxes && (
- <div className={ styles.friends__checkbox }>
- <input
- type="checkbox"
- checked={ selectedFriendIds.includes(friend.id) }
- onChange={ () => handleFriendClick(friend.id) }
- id={ `checkbox-${ friend.id }` }
- />
- <label htmlFor={ `checkbox-${ friend.id }` } className={ styles.friends__label }></label>
- </div>
- ) }
- <img src={ friend.src } alt="friend" />
- <div className={ styles.friends__name }>{ friend.name }</div>
- { friend.id === 1 && (
- <img src={ telegram } alt="telegramIcon" className={ styles.friends__icon } />
- ) }
- { friend.id === 3 && (
- <img src={ mod } alt="modIcon" className={ styles.friends__icon } />
- ) }
- </div>
- )) }
- </>
- );
- };
- */

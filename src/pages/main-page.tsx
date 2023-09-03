@@ -1,14 +1,14 @@
 import React from 'react';
 import { Header } from '../components/header';
 import { Layout } from '../components/layout';
-import { Navbar } from '../components/navbar';
+import { Sidebar } from '../components/sidebar';
 
 const MainPage = () => {
 	return (
 		<>
 			<Header />
 			<Layout>
-				<Navbar/>
+				<Sidebar/>
 				<div style={{background: 'red'}}>content</div>
 			</Layout>
 		</>

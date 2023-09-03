@@ -18,7 +18,7 @@ export const Friends = ({ selectedFriendIds, handleFriendClick, showCheckboxes }
 					key={friend.id}
 					className={`${styles.friends__container} ${
 						selectedFriendIds.includes(friend.id) ? styles.friends__container_selected : ""
-					}`}
+					} ${friend.id === 1 ? styles.friends__container_border : ""}`}
 					onClick={() => handleFriendClick(friend.id)}
 				>
 					{showCheckboxes && (
