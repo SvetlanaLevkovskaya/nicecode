@@ -1,1 +1,1 @@
-export {Notes} from './ui/notes'
+export { Notes } from './ui/notes'

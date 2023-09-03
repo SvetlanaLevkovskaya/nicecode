@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './profileContent.module.scss'
 import { Notes } from '../../notes';
+import { Consult } from '../../consult';
 
 
 export const ProfileContent = ({ activeButton }: {
@@ -11,7 +12,7 @@ export const ProfileContent = ({ activeButton }: {
 			case 'Заметки':
 				return <Notes />;
 			case 'Консультации':
-				return 'Консультации content';
+				return <Consult />;
 			case 'Видео':
 				return 'Видео content';
 			case 'Мероприятия':
