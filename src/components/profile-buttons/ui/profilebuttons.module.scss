@@ -26,11 +26,8 @@
     white-space: nowrap;
     transition: background-color 0.2s ease-in;
 
-    &:active {
-      color: $blue;
-    }
-
-    &:hover {
+    &:hover,
+    &.activeButton { 
       color: $blue;
     }
 
