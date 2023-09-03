@@ -18,6 +18,7 @@
 }
 
 .profileInfo__rightContainer {
+  position: relative;
   margin-left: auto;
 }
 
@@ -33,4 +34,30 @@
 .profileInfo__dop {
   font-size: 12px;
   font-weight: 400;
+}
+
+.profileInfo__dropdown {
+  position: absolute;
+  top: 25%;
+  left: -212px;
+  width: 230px;
+  border-radius: 4px;
+  background-color: $white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+.profileInfo__dropdownItem {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profileInfo__dropdownItem:hover {
+  background-color: $light-grey;
+}
+
+.profileInfo__dropdownItem:last-child {
+  margin-bottom: 0;
 }
