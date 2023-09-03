@@ -26,6 +26,8 @@ export const Consult = () => {
 			name: 'Личный приём',
 			dop: '15.01.2019, 12:30-13:00',
 			className: styles.content__container,
+			imageClassName: styles.imageBackground,
+			showStatus: true,
 		},
 	];
 
@@ -35,13 +37,25 @@ export const Consult = () => {
 				<div className={ container.className } key={ index }>
 					<div className={ styles.content__leftContainer }>
 						{ container.image && (
-							<img src={ container.image } alt={ container.alt } />
+							<div className={ container.imageClassName }>
+								<img
+									src={ container.image }
+									alt={ container.alt }
+								/>
+							</div>
+
 						) }
 						<div className={ styles.content__subcontainer }>
 							<div className={ styles.content__name }>{ container.name }</div>
 							<div className={ styles.content__dop }>{ container.dop }</div>
 						</div>
+						{ container.showStatus && (
+							<div className={ styles.content__rightContainer }>
+								<div className={ styles.content__status }>Не подтверждена</div>
+							</div>
+						) }
 					</div>
+
 				</div>
 			)) }
 		</div>
