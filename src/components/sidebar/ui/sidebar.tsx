@@ -30,11 +30,12 @@ export const Sidebar = () => {
 		setShowCheckboxes(!showCheckboxes);
 	};
 
-	const handleFriendClick = (friendId: number) => {
-		if (selectedFriendIds.includes(friendId)) {
-			setSelectedFriendIds(selectedFriendIds.filter((id) => id !== friendId));
-		} else {
+	const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>, friendId: any) => {
+		event.stopPropagation(); // Остановить всплытие события, чтобы не вызывался клик на родительском элементе
+		if (event.target.checked) {
 			setSelectedFriendIds([...selectedFriendIds, friendId]);
+		} else {
+			setSelectedFriendIds(selectedFriendIds.filter((id) => id !== friendId));
 		}
 	};
 
@@ -107,8 +108,8 @@ export const Sidebar = () => {
 
 			<Friends
 				selectedFriendIds={ selectedFriendIds }
-				handleFriendClick={ handleFriendClick }
 				showCheckboxes={ showCheckboxes }
+				handleCheckboxChange={handleCheckboxChange}
 			/>
 		</div>
 	);
