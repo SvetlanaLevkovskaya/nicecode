@@ -2,8 +2,6 @@ import React from 'react';
 import video1 from '../../../assets/video1.svg'
 import video2 from '../../../assets/video2.svg'
 import video3 from '../../../assets/video3.svg'
-
-
 import styles from './video.module.scss'
 
 export const Video = () => {

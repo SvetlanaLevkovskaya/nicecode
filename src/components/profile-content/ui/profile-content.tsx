@@ -3,6 +3,7 @@ import styles from './profileContent.module.scss'
 import { Notes } from '../../notes';
 import { Consult } from '../../consult';
 import { Video } from '../../video';
+import { Events } from '../../events';
 
 
 export const ProfileContent = ({ activeButton }: {
@@ -17,7 +18,7 @@ export const ProfileContent = ({ activeButton }: {
 			case 'Видео':
 				return <Video />;
 			case 'Мероприятия':
-				return 'Мероприятия content';
+				return <Events />;
 			default:
 				return <Notes />;
 		}
