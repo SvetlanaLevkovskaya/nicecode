@@ -27,12 +27,12 @@
     transition: background-color 0.2s ease-in;
 
     &:hover,
-    &.activeButton { 
+    &.activeButton {
       color: $blue;
     }
 
     .profileButton__icon {
-      margin-left: 5px;
+      margin-left: 8px;
     }
 
   }

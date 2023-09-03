@@ -12,6 +12,16 @@ export const ProfileButtons = ({ activeButton, setActiveButton }: {
 		setActiveButton(buttonName);
 	};
 
+	const getButtonLabel = (buttonName: string) => {
+		if (buttonName === 'Консультации') {
+			return 'Записать';
+		} else if (buttonName === 'Видео' || buttonName === 'Мероприятия') {
+			return 'Рекомендовать';
+		} else {
+			return 'Новая заметка';
+		}
+	};
+
 	return (
 		<div className={ styles.profileButton__container }>
 			<div className={ styles.profileButton__leftContainer }>
@@ -49,37 +59,15 @@ export const ProfileButtons = ({ activeButton, setActiveButton }: {
 				</button>
 			</div>
 			<div className={ styles.profileButton__rightContainer }>
-				<button className={ styles.profileButton }>
-					Новая заметка
+				<button className={styles.profileButton}>
+					{getButtonLabel(activeButton)}
 					<img
-						src={ ProfileButton }
+						src={ProfileButton}
 						alt="ProfileButton"
-						className={ styles.profileButton__icon }
+						className={styles.profileButton__icon}
 					/>
 				</button>
 			</div>
 		</div>
 	);
 };
-
-
-/*
- export const ProfileButtons = () => {
- return (
- <div className={styles.profileButton__container}>
- <div className={styles.profileButton__leftContainer}>
- <button className={styles.profileButton}>Заметки</button>
- <button className={styles.profileButton}>Консультации</button>
- <button className={styles.profileButton}>Видео</button>
- <button className={styles.profileButton}>Мероприятия</button>
- </div>
- <div className={styles.profileButton__rightContainer}>
- <button className={styles.profileButton}>
- Новая заметка
- <img src={ProfileButton} alt="ProfileButton" className={styles.profileButton__icon} />
- </button>
- </div>
- </div>
- );
- };
- */
