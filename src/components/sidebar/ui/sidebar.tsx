@@ -5,6 +5,7 @@ import { friendsData } from '../../../data/friends';
 import { SearchIcon } from '../../search-icon';
 import { FilterIcon } from '../../filter-icon';
 import { PlusIcon } from '../../plus-icon';
+import { SidebarToolbar } from '../../sidebar-toolbar';
 
 
 export const Sidebar = () => {
@@ -27,6 +28,7 @@ export const Sidebar = () => {
 		} else {
 			setSelectedFriendIds([]);
 			setShowActions(false);
+
 		}
 	};
 
@@ -54,78 +56,42 @@ export const Sidebar = () => {
 	};
 
 	return (
-		<div className={styles.sidebar}>
-			<div className={styles.sidebar__container}>
+		<div className={ styles.sidebar }>
+			<div className={ styles.sidebar__container }>
 				<SearchIcon
-					onMouseEnter={() => setIsSearchHovered(true)}
-					onMouseLeave={() => setIsSearchHovered(false)}
-					isSearchHovered={isSearchHovered}
+					onMouseEnter={ () => setIsSearchHovered(true) }
+					onMouseLeave={ () => setIsSearchHovered(false) }
+					isSearchHovered={ isSearchHovered }
 				/>
-				<div className={styles.sidebar__icons}>
+				<div className={ styles.sidebar__icons }>
 					<FilterIcon
-						onMouseEnter={() => setIsFilterHovered(true)}
-						onMouseLeave={() => setIsFilterHovered(false)}
-						isFilterHovered={isFilterHovered}
+						onMouseEnter={ () => setIsFilterHovered(true) }
+						onMouseLeave={ () => setIsFilterHovered(false) }
+						isFilterHovered={ isFilterHovered }
 					/>
 					<PlusIcon
-						onMouseEnter={() => setIsPlusHovered(true)}
-						onMouseLeave={() => setIsPlusHovered(false)}
-						isPlusHovered={isPlusHovered}
+						onMouseEnter={ () => setIsPlusHovered(true) }
+						onMouseLeave={ () => setIsPlusHovered(false) }
+						isPlusHovered={ isPlusHovered }
 					/>
 				</div>
 			</div>
 
-			<div className={styles.sidebar__toolbar}>
-				<div className={styles.sidebar__subcontainer}>
-					{showSelectAllCheckbox && (
-						<div className={styles.sidebar__checkbox}>
-							<input
-								type="checkbox"
-								checked={selectAll}
-								onChange={handleSelectAll}
-								id="selectAll"
-							/>
-							<label htmlFor="selectAll" className={styles.sidebar__label}>
-								Все
-							</label>
-
-							<div className={styles.sidebar__selectedFriendsCounter}>
-								{selectedFriendIds.length}
-							</div>
-						</div>
-					)}
-				</div>
-				<div>
-					{!showActions ? (
-						<div className={styles.sidebar__counterContainer}>
-							<div className={styles.sidebar__defaultFriendsCounter}>
-								213
-							</div>
-							<button className={styles.sidebar__btn} onClick={handleSelectClick}>
-								Выбрать
-							</button>
-						</div>
-
-					) : (
-						<>
-							<button className={styles.sidebar__actionBtn} onClick={() => {}}>
-								Действия
-							</button>
-							<button
-								className={styles.sidebar__btn}
-								onClick={handleCancelClick}
-							>
-								Отменить
-							</button>
-						</>
-					)}
-				</div>
-			</div>
+			<SidebarToolbar
+				showSelectAllCheckbox={ showSelectAllCheckbox }
+				selectAll={ selectAll }
+				selectedFriendIds={ selectedFriendIds }
+				showActions={ showActions }
+				showCheckboxes={ showCheckboxes }
+				handleSelectAll={ handleSelectAll }
+				handleCancelClick={ handleCancelClick }
+				handleSelectClick={ handleSelectClick }
+			/>
 
 			<Friends
-				selectedFriendIds={selectedFriendIds}
-				showCheckboxes={showCheckboxes}
-				handleCheckboxChange={handleCheckboxChange}
+				selectedFriendIds={ selectedFriendIds }
+				showCheckboxes={ showCheckboxes }
+				handleCheckboxChange={ handleCheckboxChange }
 			/>
 		</div>
 	);
