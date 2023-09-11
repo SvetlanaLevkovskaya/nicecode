@@ -4,7 +4,6 @@ import { ProfileInfo } from '../../profile-info';
 import { ProfileButtons } from '../../profile-buttons';
 import { ProfileContent } from '../../profile-content';
 
-
 export const Profile = () => {
 	const [activeButton, setActiveButton] = useState(null);
 	return (

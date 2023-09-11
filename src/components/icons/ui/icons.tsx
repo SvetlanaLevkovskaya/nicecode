@@ -19,13 +19,14 @@ export const Plus = (props: any) => (
 	</svg>
 );
 
+
 export const Filter = (props: any) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		width={ 34 }
 		height={ 34 }
 		fill="none"
-		{ ...props }
+		{...props}
 	>
 		<circle cx={ 17 } cy={ 17 } r={ 17 } fill="#F1F2F3" />
 		<path
@@ -57,6 +58,7 @@ export const Dropdown = (props: any) => (
 		/>
 	</svg>
 );
+
 
 export const Search = (props: any) => (
 	<svg

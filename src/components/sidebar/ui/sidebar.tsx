@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import styles from './sidebar.module.scss';
 import { Friends } from '../../friends';
 import { friendsData } from '../../../data/friends';
-import { SearchIcon } from '../../search-icon';
-import { FilterIcon } from '../../filter-icon';
-import { PlusIcon } from '../../plus-icon';
 import { SidebarToolbar } from '../../sidebar-toolbar';
 import searchInput from '../../../assets/search-input.svg'
 import close from '../../../assets/close.svg'
 import closeHover from '../../../assets/closehover.svg'
+import { Filter, Plus, Search } from '../../icons/ui/icons';
 
 
 export const Sidebar = () => {
@@ -18,9 +16,6 @@ export const Sidebar = () => {
 	const [showCheckboxes, setShowCheckboxes] = useState(false);
 	const [showSelectAllCheckbox, setShowSelectAllCheckbox] = useState(false);
 
-	const [isSearchHovered, setIsSearchHovered] = useState(false);
-	const [isFilterHovered, setIsFilterHovered] = useState(false);
-	const [isPlusHovered, setIsPlusHovered] = useState(false);
 	const [isSearchClicked, setIsSearchClicked] = useState(false);
 	const [isCloseHovered, setIsCloseHovered] = useState(false);
 
@@ -62,8 +57,6 @@ export const Sidebar = () => {
 
 	const handleSearchClick = () => {
 		setIsSearchClicked(true);
-		setIsFilterHovered(false);
-		setIsPlusHovered(false);
 	};
 
 	const handleCloseClick = () => {
@@ -78,6 +71,7 @@ export const Sidebar = () => {
 		setIsCloseHovered(false);
 	};
 
+
 	return (
 		<div className={ styles.sidebar }>
 			<div className={ styles.sidebar__container }>
@@ -91,28 +85,19 @@ export const Sidebar = () => {
 							onClick={handleCloseClick}
 							onMouseEnter={handleCloseHover}
 							onMouseLeave={handleCloseLeave}
+
 						/>
 					</>
 
 				) }
 
-				<SearchIcon
-					onMouseEnter={ () => setIsSearchHovered(true) }
-					onMouseLeave={ () => setIsSearchHovered(false) }
-					isSearchHovered={ isSearchHovered }
-					onClick={ handleSearchClick }
-				/>
+				<div className={ styles.sidebar__searchIcon }>
+					<Search onClick={ handleSearchClick } />
+				</div>
+
 				<div className={ styles.sidebar__icons }>
-					<FilterIcon
-						onMouseEnter={ () => setIsFilterHovered(true) }
-						onMouseLeave={ () => setIsFilterHovered(false) }
-						isFilterHovered={ isFilterHovered }
-					/>
-					<PlusIcon
-						onMouseEnter={ () => setIsPlusHovered(true) }
-						onMouseLeave={ () => setIsPlusHovered(false) }
-						isPlusHovered={ isPlusHovered }
-					/>
+					<Filter />
+					<Plus />
 				</div>
 			</div>
 

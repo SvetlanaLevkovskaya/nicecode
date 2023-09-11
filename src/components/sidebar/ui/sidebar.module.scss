@@ -15,14 +15,23 @@
     padding: 13px;
     background-color: $white;
     transition: background-color 0.2s ease-in;
-  }
 
-  .sidebar__icons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    .sidebar__searchIcon,
+    .sidebar__icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      svg:hover circle,
+      svg:hover rect {
+        fill: $blue;
+      }
+
+      svg:hover path {
+        fill: $white;
+      }
+    }
   }
 }
-
 
 
