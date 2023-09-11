@@ -3,6 +3,7 @@
 .profileButton__container {
   display: flex;
   justify-content: space-between;
+  padding-right: 10px;
 
   .profileButton__leftContainer {
     display: flex;
@@ -13,6 +14,7 @@
   .profileButton__rightContainer {
     display: flex;
     align-items: center;
+
   }
 
   .profileButton {
@@ -35,8 +37,15 @@
       margin-left: 8px;
     }
 
+
+  }
+  .profileButton:nth-child(2)::before,
+  .profileButton:nth-child(3)::before,
+  .profileButton:nth-child(4)::before {
+    content: "";
+    width: 1px;
+    height: 16px;
+    background-color: $grey;
+    margin-right: 25px;
   }
 }
-
-
-
